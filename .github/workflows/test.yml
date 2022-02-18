@@ -11,4 +11,4 @@ jobs:
         runner: [1,2,3,4,5,6,7,8,9,10]
     steps:
       - run: sudo dd if=/dev/zero of=/tmp/large bs=1G count=1 oflag=dsync
-      - run: sudo dd if=/dev/zero of=/tmp/small bs=512 count=10k oflag=dsync
+      - run: sudo dd if=/dev/zero of=/tmp/small bs=512 count=1000 oflag=dsync
