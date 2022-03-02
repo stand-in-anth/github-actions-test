@@ -1,0 +1,17 @@
+name: test2
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '1/5 * * * *'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      matrix: 
+        runner: [1,2]
+    steps:
+      - run: sudo dd if=/dev/zero of=/tmp/large bs=1G count=1 oflag=dsync
+      - run: sudo dd if=/dev/zero of=/tmp/small bs=512 count=1000 oflag=dsync
